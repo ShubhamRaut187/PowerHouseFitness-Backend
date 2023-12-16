@@ -38,7 +38,7 @@ const ClubScheme = mongoose.Schema({
     }
 })
 
-const ClubModel = mongoose.model('models',ClubScheme);
+const ClubModel = mongoose.model('clubs',ClubScheme);
 
 module.exports={
     ClubModel
