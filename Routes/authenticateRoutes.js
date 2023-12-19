@@ -12,6 +12,7 @@ authenticationRouter.post('/signup',async(req,res)=>{
     //     res.status(406).send({"Message":"Email address already user!"})
     // }
     // const Plan = {};
+    console.log(Membership);
     const HashedPassword = bcrypt.hashSync(Password,8);
     const New_User = new UserModel({
         Name,
@@ -19,7 +20,7 @@ authenticationRouter.post('/signup',async(req,res)=>{
         Mobile,
         Password:HashedPassword,
         Address,
-        Role,
+        Role
     });
     try {
         await New_User.save();

@@ -32,7 +32,7 @@ app.use('/memberships',membershipRouter)
 
 
 // Server Connection
-app.listen(8000,async(req,res)=>{
+app.listen(process.env.PORT,async(req,res)=>{
     try {
         await connection;
         console.log('Mongo DB Connection Established on port 8000');

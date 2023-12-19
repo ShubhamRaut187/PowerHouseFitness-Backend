@@ -27,6 +27,12 @@ const UserScheme = mongoose.Schema({
         type:String,
         default:"User",
         required:true
+    },
+    Membership:{
+        type:Object,
+        default:{
+            Name:"Buy a membership!"
+        }
     }
 
 })

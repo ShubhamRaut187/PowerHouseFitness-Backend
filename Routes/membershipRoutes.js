@@ -26,11 +26,12 @@ membershipRouter.get('/:id',authenticate,async(req,res)=>{
 
 
 membershipRouter.post('/create',authenticate,async(req,res)=>{
-    const {CustomerID,PlanID} = req.body;
+    const {CustomerID,Plan,Trainer} = req.body;
     try {
         const New_Membership = new MembershipModel({
           CustomerID,
-          PlanID
+          Plan,
+          Trainer
         });
         await New_Membership.save();
         res.status(201).send({"Message":"Membership added!","Membership":New_Membership});

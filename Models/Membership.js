@@ -5,9 +5,12 @@ const MembershipSchema = mongoose.Schema({
         type:String,
         required:true,
     },
-    PlanID:{
-        type:String,
+    Plan:{
+        type:Object,
         required:true,
+    },
+    Trainer:{
+        type:Object
     }
 })
 
