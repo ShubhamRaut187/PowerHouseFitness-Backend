@@ -59,7 +59,7 @@ clubRouter.patch('/updateclub/:id',authenticate,authorize,async(req,res)=>{
 clubRouter.delete('/deleteclub/:id',authenticate,authorize,async(req,res)=>{
     const {id} = req.params;
     try {
-        const Club = await ClubModel.finOneAndDelete({_id:id});
+        const Club = await ClubModel.findOneAndDelete({_id:id});
         res.status(200).send({"Message":"Club Deleted","Club":Club});
     } catch (error) {
         res.status(500).send({"Message":"Something Went Wrong","Error":error});

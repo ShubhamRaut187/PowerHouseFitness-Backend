@@ -32,9 +32,11 @@ authenticationRouter.post('/signup',async(req,res)=>{
 
 authenticationRouter.post('/login',async(req,res)=>{
     const {Email,Password} = req.body;
+    try {
     const User = await UserModel.findOne({Email});
     if(!User){
         res.status(404).send({"Message":"User not registered, Please Signup!"});
+        return
     }
     const hash = User.Password;
     const Correct_Password = bcrypt.compareSync(Password,hash);
@@ -45,6 +47,9 @@ authenticationRouter.post('/login',async(req,res)=>{
     else{
         res.status(400).send({"Message":"Invalid Credentials"})
     }
+   } catch (error) {
+    res.status(500).send({"Message":"Something Went Wrong, try again","Error":error});
+   }
 });
 
 module.exports = {

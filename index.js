@@ -10,7 +10,7 @@ const {productRouter} = require('./Routes/productRoutes')
 const {planRouter} = require('./Routes/planRoutes')
 const {orderRouter} = require('./Routes/orderRoutes')
 const {membershipRouter} = require('./Routes/membershipRoutes')
-
+require('dotenv').config()
 const app = express();
 
 app.use(express.json());

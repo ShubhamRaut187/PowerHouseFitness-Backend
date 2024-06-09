@@ -58,7 +58,7 @@ productRouter.patch('/updateproduct/:id',authenticate,authorize,async(req,res)=>
 productRouter.delete('/deleteproduct/:id',authenticate,authorize,async(req,res)=>{
     const {id} = req.params;
     try {
-        const Product = await ProductModel.finOneAndDelete({_id:id});
+        const Product = await ProductModel.findOneAndDelete({_id:id});
         res.status(200).send({"Message":"Product Deleted","Product":Product});
     } catch (error) {
         res.status(500).send({"Message":"Something Went Wrong","Error":error});
